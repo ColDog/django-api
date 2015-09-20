@@ -12,7 +12,6 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
-import django.contrib.postgres
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -30,7 +29,8 @@ ALLOWED_HOSTS = []
 
 CORS_ORIGIN_WHITELIST = (
     '127.0.0.1:3000',
-    'localhost:3000'
+    'localhost:3000',
+    '*/*'
 )
 CORS_ALLOW_CREDENTIALS = True
 
@@ -46,6 +46,7 @@ INSTALLED_APPS = (
     'api',
     'django.contrib.postgres',
     'corsheaders'
+    # 'django-jwt-auth'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -87,7 +88,7 @@ WSGI_APPLICATION = 'skio.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'django',
+        'NAME': 'skio',
         'USER': 'ColinWalker',
         'PASSWORD': 'pspassword',
         'HOST': 'localhost',
@@ -114,3 +115,5 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
 STATIC_URL = '/static/'
+
+APPEND_SLASH = True
