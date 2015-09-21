@@ -57,10 +57,12 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('username', models.CharField(unique=True, max_length=50)),
                 ('displayName', models.CharField(max_length=50)),
-                ('tagLine', models.CharField(max_length=200)),
+                ('tagLine', models.CharField(max_length=200, blank=True)),
                 ('label', models.CharField(max_length=50, blank=True)),
                 ('description', models.TextField(blank=True)),
                 ('tags', django.contrib.postgres.fields.ArrayField(default=list, base_field=django.contrib.postgres.fields.ArrayField(base_field=models.CharField(max_length=50), size=None), size=None)),
+                ('email', models.CharField(unique=True, max_length=100)),
+                ('password', models.CharField(max_length=100)),
             ],
         ),
         migrations.AddField(
